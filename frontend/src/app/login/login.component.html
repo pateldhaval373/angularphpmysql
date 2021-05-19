@@ -1,0 +1,29 @@
+<div class="col-md-4 container">
+    <div class="col-md-6">
+        <h2 style="margin: auto ; text-align: center;">Please Login </h2>
+        <h3 *ngIf="message">
+            {{message}}
+        </h3>
+        <div *ngIf="invalidLogin" class="error">
+            <div class="txt-danger">Invalied user or password. Please try again</div>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" formControlName="username" id="username" autocomplete="off">
+                <div class="error" *ngIf="loginForm.controls['username'].hasError('required') 
+        && loginForm.controls['username'].touched">Please enter user name</div>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" formControlName="password" id="pwd" autocomplete="off">
+                <div class="error" *ngIf="loginForm.controls['password'].hasError('required') 
+        && loginForm.controls['password'].touched">Please enter password</div>
+            </div>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success" [disabled]="loginForm.invalid">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

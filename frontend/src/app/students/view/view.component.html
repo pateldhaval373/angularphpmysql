@@ -1,0 +1,30 @@
+<div class="container table-responsive text-center">
+    <div *ngIf="token"><button (click)="logOut()">Logout</button></div>
+
+    <table class="table ">
+        <thead>
+            <th>ID</th>
+            <th>USER NAME</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>AGE</th>
+            <th>SALARY</th>
+            <th>ACTION</th>
+        </thead>
+        <br>
+        <tbody>
+            <tr *ngFor="let user of this.users">
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.salary}}</td>
+                <td><a href="javascript:void(0);" class="btn btn-success" (click)="edit(user)"><b>EDIT</b></a>&nbsp;&nbsp;<a href="javascript:void(0);" class="btn btn-danger" (click)="deleteuser(user)"><b>DELETE</b></a></td><br>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-success" routerLink="/add">Add User</button>
+
+</div>
